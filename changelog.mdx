@@ -1,0 +1,164 @@
+---
+title: Changelog
+description: Review the evolution of AdsTurbo with details on new features, improvements, and fixes across versions.
+---
+
+## Overview
+
+Track AdsTurbo's progress through detailed release notes. You receive new AI-powered tools for ad creation, performance boosts, and reliability fixes. Each version builds on the last to maximize your campaign ROI.
+
+<Columns cols={3}>
+  <Card title="Latest: v2.1.0" icon="zap" href="#v210">
+    AI Image Generator and 40% faster rendering.
+  </Card>
+  <Card title="v2.0.0" icon="rocket" href="#v200">
+    Redesigned dashboard with real-time analytics.
+  </Card>
+  <Card title="v1.5.0" icon="trending-up" href="#v150">
+    Advanced A/B testing integration.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  Subscribe to our RSS feed or join the Discord community to get notified of new releases instantly.
+</Callout>
+
+## Upgrade Guide
+
+Follow these steps to update your AdsTurbo integration seamlessly.
+
+<Steps>
+  <Step title="Check Compatibility" icon="check-circle">
+    Review the changelog for breaking changes in your target version.
+  </Step>
+  <Step title="Update SDK" icon="download">
+    Install the latest version using your package manager.
+
+    <CodeGroup tabs="npm,yarn,pnpm">
+      ```bash
+      npm install adsturabo@latest
+      ```
+      ```bash
+      yarn add adsturabo@latest
+      ```
+      ```bash
+      pnpm add adsturabo@latest
+      ```
+    </CodeGroup>
+  </Step>
+  <Step title="Migrate Code" icon="code">
+    Update deprecated methods. For example, replace `createAdCreative` with `generateAd`.
+
+    <CodeGroup tabs="Before,After">
+      ```javascript
+      // Before (v1.x)
+      const ad = await adsTurbo.createAdCreative({
+        title: "Summer Sale",
+        target: "facebook"
+      });
+      ```
+      ```javascript
+      // After (v2.x)
+      const ad = await adsTurbo.generateAd({
+        title: "Summer Sale",
+        platform: "facebook",
+        aiModel: "turbo-v2"
+      });
+      ```
+    </CodeGroup>
+  </Step>
+  <Step title="Test Campaigns" icon="play">
+    Run A/B tests on a staging environment to verify performance.
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Node.js" icon="nodejs">
+    Ensure Node.js `{>=18}`. Update your `package.json` scripts:
+
+    ```json
+    {
+      "scripts": {
+        "ads:build": "adsTurbo build --api-key=YOUR_API_KEY"
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Python" icon="python">
+    Upgrade via pip:
+
+    ```bash
+    pip install adsturabo-sdk==2.1.0
+    ```
+  </Tab>
+</Tabs>
+
+## Version History
+
+<Update label="2024-10-15" description="v2.1.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- **AI Image Generator**: Generate custom ad visuals from text prompts using the new `generateImage` method.
+- **Batch Processing**: Create up to 50 ad variants in one API call.
+
+## Improvements
+
+- Rendering speed increased by 40% with optimized AI models.
+- Enhanced preview mode supports real-time edits.
+
+## Bug Fixes
+
+- Fixed intermittent failures in Facebook ad exports.
+- Resolved token refresh issues during long sessions.
+
+</Update>
+
+<Update label="2024-09-20" description="v2.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- **Real-time Analytics Dashboard**: Monitor campaign performance with live metrics.
+- **A/B Testing Suite**: Automated split testing with statistical significance calculator.
+
+## Breaking Changes
+
+- Renamed `createAdCreative` to `generateAd` for clarity.
+- `target` parameter now uses `platform` key.
+
+## Improvements
+
+- UI overhaul with dark mode support.
+- API rate limits increased to 10,000 requests per hour.
+
+## Bug Fixes
+
+- Corrected ROI calculation discrepancies.
+- Fixed export errors for Google Ads formats.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.5.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- **Multi-platform Export**: Generate ads for Facebook, Google, and Instagram simultaneously.
+- **Template Library**: 50+ pre-built ad templates powered by AI.
+
+## Improvements
+
+- Added webhook support for campaign status updates.
+- Better error messages with actionable suggestions.
+
+## Bug Fixes
+
+- Patched security vulnerability in image upload (CVE-2024-5678).
+- Stabilized long-running generation jobs.
+
+</Update>
+
+<ExpandableGroup>
+  <Expandable title="Older Versions" default-open="false">
+    View v1.4.x and earlier on GitHub releases.
+  </Expandable>
+</ExpandableGroup>
